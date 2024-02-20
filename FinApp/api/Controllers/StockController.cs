@@ -18,25 +18,26 @@ namespace FinApp.api.Controllers
 
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var stocks = _context.Stocks.ToList();
+            var stocks = await _context.Stocks.ToListAsync();
 
             return Ok(stocks);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var stock = _context.Stocks.Find(id);
+            var stock = await _context.Stocks.FindAsync(id);
 
             if (stock == null)
             {
-                return NotFound();
+                return NotFound("Stock not found");
             }
 
             return Ok(stock);
         }
+
     }
 
 }
