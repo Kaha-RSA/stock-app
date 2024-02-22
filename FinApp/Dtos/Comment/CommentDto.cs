@@ -1,4 +1,4 @@
-﻿namespace FinApp.api.Dtos.Comment
+﻿namespace FinApp.Dtos.Comment
 {
     public class CommentDto
     {

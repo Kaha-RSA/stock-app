@@ -1,9 +1,9 @@
-﻿using FinApp.api.Dtos.Stock;
-using FinApp.api.Models;
+﻿using FinApp.Dtos.Stock;
+using FinApp.Models;
 
 
 
-namespace FinApp.api.Interfaces
+namespace FinApp.Interfaces
 {
     public interface IStockRepository
     {

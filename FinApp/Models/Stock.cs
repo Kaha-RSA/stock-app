@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FinApp.api.Models
+namespace FinApp.Models
 {
-    public class Stock 
+    public class Stock
     {
         public int Id { get; set; }
         public string Symbol { get; set; } = string.Empty;

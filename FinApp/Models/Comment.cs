@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FinApp.api.Models
+namespace FinApp.Models
 {
     [Table("Comments")]
     public class Comment

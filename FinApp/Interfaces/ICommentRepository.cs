@@ -1,6 +1,6 @@
-﻿using FinApp.api.Models;
+﻿using FinApp.Models;
 
-namespace FinApp.api.Interfaces
+namespace FinApp.Interfaces
 {
     public interface ICommentRepository
     {

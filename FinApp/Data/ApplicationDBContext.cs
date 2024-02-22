@@ -1,7 +1,7 @@
-﻿using FinApp.api.Models;
+﻿using FinApp.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinApp.api.Data
+namespace FinApp.Data
 {
     // This class represents the application's database context, which is responsible for interacting with the underlying database.
     public class ApplicationDBContext : DbContext

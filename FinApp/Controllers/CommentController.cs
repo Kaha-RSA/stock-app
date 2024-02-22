@@ -1,22 +1,21 @@
-﻿using FinApp.api.Mappers;
-using Microsoft.AspNetCore.Mvc;
-using FinApp.api.Interfaces;
-using FinApp.api.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Components.Forms;
+using FinApp.Interfaces;
+using FinApp.Mappers;
 
-namespace FinApp.api.Controllers
+namespace FinApp.Controllers
 {
     [Route("api/comment")]
     [ApiController]
     public class CommentController : ControllerBase
     {
         private readonly ICommentRepository _commentRepo;
-       
 
-        public CommentController(ICommentRepository commentRepo) 
+
+        public CommentController(ICommentRepository commentRepo)
         {
             _commentRepo = commentRepo;
-            
+
         }
 
         [HttpGet]
@@ -30,7 +29,7 @@ namespace FinApp.api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById([FromRoute]int id)
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var comment = await _commentRepo.GetByIdAsync(id);
 
@@ -41,6 +40,6 @@ namespace FinApp.api.Controllers
 
             return Ok(comment.ToCommentDto());
         }
-            
-    } 
+
+    }
 }

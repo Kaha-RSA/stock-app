@@ -1,4 +1,4 @@
-﻿namespace FinApp.api.Dtos.Stock
+﻿namespace FinApp.Dtos.Stock
 {
     public class CreateStockRequestDto
     {

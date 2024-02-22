@@ -24,12 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="api\appsettings.Development.json">
+    <Content Update="appsettings.Development.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="api\appsettings.json">
+    <Content Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -37,13 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="api\Migrations\" />
+    <Folder Include="api\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="api\api.csproj" />
-  </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties api_4appsettings_1json__JsonSchema="https://json.schemastore.org/azure-iot-edge-deployment-template-4.0.json" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

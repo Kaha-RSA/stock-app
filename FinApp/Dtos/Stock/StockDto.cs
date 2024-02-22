@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using FinApp.api.Dtos.Comment;
+using FinApp.Dtos.Comment;
 
-namespace FinApp.api.Dtos.Stock
+namespace FinApp.Dtos.Stock
 {
     public class StockDto
     {

@@ -1,10 +1,10 @@
-﻿using FinApp.api.Data;
-using FinApp.api.Dtos.Stock;
-using FinApp.api.Interfaces;
-using FinApp.api.Models;
+﻿using FinApp.Data;
+using FinApp.Dtos.Stock;
+using FinApp.Interfaces;
+using FinApp.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinApp.api.Repository
+namespace FinApp.Repository
 {
     public class StockRepository : IStockRepository
     {

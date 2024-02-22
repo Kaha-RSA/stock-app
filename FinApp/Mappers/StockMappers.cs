@@ -1,9 +1,9 @@
-﻿using FinApp.api.Dtos.Stock;
-using System.Security.Cryptography.X509Certificates;
-using FinApp.api.Models;
+﻿using System.Security.Cryptography.X509Certificates;
 using System.Runtime.CompilerServices;
+using FinApp.Dtos.Stock;
+using FinApp.Models;
 
-namespace FinApp.api.Mappers
+namespace FinApp.Mappers
 {
     public static class StockMappers
     {

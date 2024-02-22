@@ -1,6 +1,6 @@
-using FinApp.api.Data;
-using FinApp.api.Interfaces;
-using FinApp.api.Repository;
+using FinApp.Data;
+using FinApp.Interfaces;
+using FinApp.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 

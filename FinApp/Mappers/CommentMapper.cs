@@ -1,12 +1,12 @@
-﻿using FinApp.api.Dtos.Comment;
-using FinApp.api.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
 using System.Reflection.Metadata;
 using System;
 using System.Runtime.CompilerServices;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
+using FinApp.Dtos.Comment;
+using FinApp.Models;
 
-namespace FinApp.api.Mappers
+namespace FinApp.Mappers
 {
     public static class CommentMapper
     {
