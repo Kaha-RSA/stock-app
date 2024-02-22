@@ -17,6 +17,6 @@ namespace FinApp.api.Data
         public DbSet<Stock> Stocks { get; set; }
 
         // DbSet represents a collection of entities (database table) for the Comment model.
-        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }
