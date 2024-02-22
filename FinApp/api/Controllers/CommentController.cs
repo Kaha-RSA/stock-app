@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using FinApp.api.Interfaces;
 using FinApp.api.Data;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace FinApp.api.Controllers
 {
@@ -10,12 +11,12 @@ namespace FinApp.api.Controllers
     public class CommentController : ControllerBase
     {
         private readonly ICommentRepository _commentRepo;
-        private readonly ApplicationDBContext _context;
+       
 
-        public CommentController(ICommentRepository commentRepo, ApplicationDBContext context) 
+        public CommentController(ICommentRepository commentRepo) 
         {
             _commentRepo = commentRepo;
-            _context = context;
+            
         }
 
         [HttpGet]
@@ -27,6 +28,19 @@ namespace FinApp.api.Controllers
 
             return Ok(commentDto);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById([FromRoute]int id)
+        {
+            var comment = await _commentRepo.GetByIdAsync(id);
+
+            if (comment == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(comment.ToCommentDto());
+        }
             
-    }
+    } 
 }

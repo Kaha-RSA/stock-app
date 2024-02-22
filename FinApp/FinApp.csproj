@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -18,7 +19,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +37,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="api\NewFolder\" />
+    <Folder Include="api\Migrations\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="api\api.csproj" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties api_4appsettings_1json__JsonSchema="https://json.schemastore.org/azure-iot-edge-deployment-template-4.0.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -2,6 +2,8 @@ using FinApp.api.Data;
 using FinApp.api.Interfaces;
 using FinApp.api.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
