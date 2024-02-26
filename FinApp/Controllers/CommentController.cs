@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components.Forms;
 using FinApp.Interfaces;
 using FinApp.Mappers;
+using FinApp.Dtos.Comment;
 
 namespace FinApp.Controllers
 {
@@ -10,11 +11,13 @@ namespace FinApp.Controllers
     public class CommentController : ControllerBase
     {
         private readonly ICommentRepository _commentRepo;
+        private readonly IStockRepository _stockRepo;
 
 
-        public CommentController(ICommentRepository commentRepo)
+        public CommentController(ICommentRepository commentRepo, IStockRepository stockRepo)
         {
             _commentRepo = commentRepo;
+            _stockRepo = stockRepo;
 
         }
 
@@ -34,6 +37,7 @@ namespace FinApp.Controllers
             var comment = await _commentRepo.GetByIdAsync(id);
 
             if (comment == null)
+
             {
                 return NotFound();
             }
@@ -41,5 +45,6 @@ namespace FinApp.Controllers
             return Ok(comment.ToCommentDto());
         }
 
+       
     }
 }

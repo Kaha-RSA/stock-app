@@ -37,7 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="api\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 

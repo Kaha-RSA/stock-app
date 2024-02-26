@@ -23,6 +23,19 @@ namespace FinApp.Mappers
                 StockId = commentModel.StockId,
             };
         }
+
+        public static Comment ToCommentFromCreate(this CreateCommentDto commentDto, int stockId)
+        {
+            // Creating a new CommentDto and populating its properties using the values from CommentModel
+            return new Comment
+            {
+          
+                Title = commentDto.Title,
+                Content = commentDto.Content,
+                StockId = stockId,
+            };
+        }
+
     }
 }
 /*
