@@ -61,29 +61,9 @@ I built a basic CRUD app to solidify my understanding of C# .NET fundamentals in
 // Step 1: Create Interface for Repository 
 // Add one method to start building infrastructure e.g GetAllAsync()
 
-public interface ICommentRepository
-{
-    Task<List<Comment>> GetAllAsync();
-}
-
 // Step 2: Create the Repository
 // Inherit from the Interface created in the step above (Ctrl + . to implement interface) 
 // Inject DBContext via constructor ID 
-
-public class CommentRepository : ICommentRepository
-{
-    private readonly ApplicationDBContext _context;
-    
-    public CommentRepository(ApplicationDBContext context)
-    {
-        _context = context;
-    }
-
-    public async Task<List<Comment>> GetAllAsync()
-    {
-        return await _context.Comments.ToListAsync();
-    }
-}
 
 // Step 3: Add DI for this in Program.cs
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
@@ -92,73 +72,15 @@ builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 // Inherit from ControllerBase before adding annotations 
 // Bring in Repository via constructor ID
 
-[Route("api/comments")]
-[ApiController]
-public class CommentController : ControllerBase
-{
-    private readonly ICommentRepository _commentRepo;
-
-    public CommentController(ICommentRepository commentRepo) 
-    {
-        _commentRepo = commentRepo;
-    }
-
     // Step 5: Add Get Controller etc
-
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var comments = await _commentRepo.GetAllAsync();
-
-        var commentDto = comments.Select(s => s.ToCommentDto());
-
-        return Ok(commentDto);
-    }
 
     // Step 6: Create DTO from Model for Repository
 
-    public class CommentDto
-    {
-        // Define properties based on what you want to expose
-        public int Id { get; set; }
-        public string Title { get; set; }
-        // ... other properties
-    }
-
     // Step 7: Create Mapper 
-
- public static class StockMappers
-{
-    public static StockDto ToStockDto(this Stock stockModel)
-    {
-        return new StockDto
-        {
-            Id = stockModel.Id,
-            Symbol = stockModel.Symbol,
-            CompanyName = stockModel.CompanyName,
-            Purchase = stockModel.Purchase,
-            LastDiv = stockModel.LastDiv,
-            Industry = stockModel.Industry,
-            MarketCap = stockModel.MarketCap,
-            Comments = stockModel.Comments.Select(c => c.ToCommentDto()).ToList()
-        };
-    }
-}
 
     // Step 8: Complete Get Controller 
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var comments = await _commentRepo.GetAllAsync();
-
-        var commentDto = comments.Select(s => s.ToCommentDto());
-
-        return Ok(commentDto);
-    }
-
     // Step 9: Test
-
     // Add an object in MSSM
     // Test get in Swagger 
 }
